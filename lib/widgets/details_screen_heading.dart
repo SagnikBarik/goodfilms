@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:goodfilms/models/movie.dart';
 import 'package:goodfilms/models/movie_details.dart';
@@ -28,8 +29,16 @@ class DetailsScreenHeading extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.45,
             width: double.infinity,
-            child: Image.network('${Constants.imagePath}${movie.backdropPath}',
-                fit: BoxFit.cover, filterQuality: FilterQuality.high),
+            child: CachedNetworkImage(
+              imageUrl: '${Constants.imagePath}${movie.backdropPath}',
+              fit: BoxFit.cover,
+              filterQuality: FilterQuality.high,
+              placeholder: (context, url) {
+                return Container(
+                  color: Colors.transparent,
+                );
+              },
+            ),
           ),
           Container(
             alignment: Alignment.bottomCenter,
@@ -58,11 +67,15 @@ class DetailsScreenHeading extends StatelessWidget {
                       child: Container(
                         height: 215,
                         alignment: Alignment.bottomCenter,
-                        child: Image.network(
-                            '${Constants.imagePath}${movie.posterPath}',
+                        child: CachedNetworkImage(
+                            placeholder: (context, url) {
+                              return Container(
+                                color: Colors.transparent,
+                              );
+                            },
+                            imageUrl: '${Constants.imagePath}${movie.posterPath}',
                             fit: BoxFit.cover,
                             filterQuality: FilterQuality.high),
-
                       ),
                     ),
                     const SizedBox(width: 15),

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,8 +18,8 @@ class MovieCarouselLayout extends StatelessWidget {
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.45,
           width: double.infinity,
-          child: Image.network(
-            posterUrl,
+          child: CachedNetworkImage(
+            imageUrl: posterUrl,
             fit: BoxFit.cover,
             filterQuality: FilterQuality.high,
           ),

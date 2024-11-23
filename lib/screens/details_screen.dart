@@ -52,7 +52,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 }
               },
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: FutureBuilder(
@@ -73,7 +73,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 },
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Text(
@@ -85,7 +85,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 textAlign: TextAlign.justify,
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
             FutureBuilder<MovieDetails>(
               future: movieDetails,
               builder: (context, snapshot) {

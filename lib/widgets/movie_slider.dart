@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:goodfilms/screens/details_screen.dart';
 import 'package:goodfilms/services/constants.dart';
@@ -35,8 +36,8 @@ class MovieSlider extends StatelessWidget {
                 child: SizedBox(
                     height: 202,
                     width: 133,
-                    child: Image.network(
-                      '${Constants.imagePath}${snapshot.data[index].posterPath}',
+                    child: CachedNetworkImage(
+                      imageUrl: '${Constants.imagePath}${snapshot.data[index].posterPath}',
                       fit: BoxFit.cover,
                       filterQuality: FilterQuality.high ,
                     )),
